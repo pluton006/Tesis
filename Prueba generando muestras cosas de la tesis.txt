@@ -1,0 +1,36 @@
+#Generando los lambdas
+lam = rlnorm(50)
+f=rep(0,50)
+#generando los Fx
+for(i in 1:50)
+{
+f[i]=rpois(1,lam[i])
+}
+f
+
+#Generando la población
+num=10:59
+x=0
+for(i in 1:50)
+{
+if(f[i]>0){
+y=rep(num[i],f[i])
+x=c(x,y)
+}
+}
+x
+#Tomando la muestra
+y=runif(sum(f))
+y
+pi= 0.3
+z=0
+for(i in 1:sum(f))
+{
+if(y[i]<pi)
+{
+z=c(z,x[i+1])
+}
+}
+z
+
+
